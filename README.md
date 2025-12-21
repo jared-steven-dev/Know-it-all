@@ -20,7 +20,7 @@ Follow these steps to install the extension in your Chrome browser:
 #### Step 1: Download the Extension
 1. Download or clone this repository to your local machine
 2. Extract the files if downloaded as a ZIP
-3. Note the location of the `Extension_main` folder
+3. Note the location of the `Explain AI v1.0` folder
 
 #### Step 2: Open Chrome Extensions Page
 1. Open Google Chrome browser
@@ -37,7 +37,7 @@ Follow these steps to install the extension in your Chrome browser:
 #### Step 4: Load the Extension
 1. Click the **Load unpacked** button
 2. A file browser window will open
-3. Navigate to and select the `Extension_main` folder (the folder containing `popup.html`, `panel.html`, and the `Scripts` folder)
+3. Navigate to and select the `Explain AI v1.0` folder (the folder containing `popup.html`, `panel.html`, and the `Scripts` folder)
 4. Click **Select Folder** (or **Open** on some systems)
 
 #### Step 5: Verify Installation
