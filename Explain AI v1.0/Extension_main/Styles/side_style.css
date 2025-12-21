@@ -1,0 +1,270 @@
+#ai-explain-icon {
+    z-index: 10000;
+}
+
+.ai-sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: white;
+    border-left: 1px solid #ccc;
+    z-index: 10002;
+    overflow-y: auto;
+    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.ai-sidebar .sidebar-header {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.ai-sidebar .close-sidebar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #888;
+    cursor: pointer;
+    padding: 0 10px;
+    line-height: 1;
+}
+
+.ai-sidebar .close-sidebar:hover {
+    color: #333;
+}
+
+.ai-sidebar .speech-bubble {
+    background: #f1f1f1;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.ai-sidebar .speech-bubble:after {
+    content: '';
+    position: absolute;
+    right: 100%;
+    top: 20px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent #f1f1f1 transparent transparent;
+}
+
+/* Custom Scrollbar Styling */
+.ai-sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.ai-sidebar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.ai-sidebar::-webkit-scrollbar-thumb {
+    background: rgba(66, 133, 244, 0.4);
+    border-radius: 10px;
+    transition: background 0.2s ease;
+}
+
+.ai-sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(66, 133, 244, 0.6);
+}
+
+.ai-sidebar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(66, 133, 244, 0.4) rgba(0, 0, 0, 0.05);
+}
+
+/* Popup Styling with Style Isolation */
+.ai-explainer-popup {
+    all: initial;
+    position: absolute;
+    z-index: 10001;
+    width: 350px;
+    background: linear-gradient(135deg, #002c66 0%, #001a3d 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(254, 218, 21, 0.3);
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    font-family: 'Segoe UI', Arial, sans-serif !important;
+    animation: popupFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ai-explainer-popup * {
+    all: revert;
+    box-sizing: border-box;
+}
+
+@keyframes popupFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.98);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(254, 218, 21, 0.2);
+}
+
+.popup-title {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.popup-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.popup-controls button {
+    background: rgba(254, 218, 21, 0.1) !important;
+    border: 1px solid rgba(254, 218, 21, 0.3) !important;
+    padding: 6px !important;
+    width: 28px !important;
+    height: 28px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    border-radius: 6px !important;
+    transition: all 0.2s ease !important;
+}
+
+.popup-controls button:hover {
+    background: rgba(254, 218, 21, 0.2) !important;
+    transform: translateY(-1px);
+}
+
+.popup-controls button img {
+    width: 16px !important;
+    height: 16px !important;
+    opacity: 0.8;
+}
+
+.popup-content {
+    padding: 16px !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+}
+
+.popup-content button {
+    background: rgba(254, 218, 21, 0.1) !important;
+    color: #feda15 !important;
+    border: 1px solid rgba(254, 218, 21, 0.3) !important;
+    padding: 8px 16px !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    width: 100% !important;
+    margin: 8px 0 !important;
+}
+
+.popup-content button:hover {
+    background: rgba(254, 218, 21, 0.2) !important;
+    transform: translateY(-1px);
+}
+
+/* Custom Scrollbar for Popup */
+.ai-explainer-popup ::-webkit-scrollbar {
+    width: 6px !important;
+}
+
+.ai-explainer-popup ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 3px !important;
+}
+
+.ai-explainer-popup ::-webkit-scrollbar-thumb {
+    background: rgba(254, 218, 21, 0.6) !important;
+    border-radius: 3px !important;
+}
+
+.ai-explainer-popup ::-webkit-scrollbar-thumb:hover {
+    background: #feda15 !important;
+}
+
+/* Style isolation - enhanced */
+.ai-explainer-popup *,
+.ai-explainer-popup *:before,
+.ai-explainer-popup *:after {
+    all: revert;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    color: inherit !important;
+}
+
+/* Add focus styles for accessibility */
+.ai-explainer-popup button:focus,
+.feature-btn:focus {
+    outline: 2px solid #feda15;
+    outline-offset: 2px;
+}
+
+/* Active state for buttons */
+.ai-explainer-popup button:active,
+.feature-btn:active {
+    transform: translateY(1px);
+}
+
+/* Custom Scrollbar Styling - scoped to extension sidebar only */
+.ai-explainer-sidebar::-webkit-scrollbar {
+    width: 10px;
+}
+
+.ai-explainer-sidebar::-webkit-scrollbar-track {
+    background: #F0F0ED;
+    border-radius: 100px;
+    margin: 0 4px;
+}
+
+.ai-explainer-sidebar::-webkit-scrollbar-thumb {
+    background: #feda15;
+    border-radius: 100px;
+    border: 3px solid #F0F0ED;
+}
+
+.ai-explainer-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #E6C200;
+}
+
+.ai-explainer-sidebar {
+    scrollbar-width: thin;
+    scrollbar-color: #feda15 #F0F0ED;
+}

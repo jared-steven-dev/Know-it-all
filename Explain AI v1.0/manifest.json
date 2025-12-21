@@ -1,0 +1,92 @@
+{
+  "manifest_version": 3,
+  "name": "Know It All",
+  "description": "Shows an AI-powered popup and sidebar when text is highlighted.",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "sidePanel",
+    "storage",
+    "identity",
+    "identity.email"
+  ],
+  "host_permissions": [
+    "https://*.googleapis.com/*",
+    "https://www.paypal.com/*",
+    "https://www.paypalobjects.com/*",
+    "https://*.google-analytics.com/*",
+    "https://www.gstatic.com/*",
+    "https://*.firebaseio.com/*",
+    "https://*.firebase.com/*",
+    "https://*.firebaseapp.com/*",
+    "https://*.cloudfunctions.net/*",
+    "<all_urls>",
+    "http://127.0.0.1:5500/*"
+  ],
+  "action": {
+    "default_popup": "./Extension_main/popup.html",
+    "default_icon": {
+      "16": "./Extension_main/Images/icon16.png",
+      "48": "./Extension_main/Images/icon48.png",
+      "128": "./Extension_main/Images/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "./Extension_main/Scripts/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["./Extension_main/Scripts/side_content.js"],
+      "css": ["./Extension_main/Styles/side_style.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "./Extension_main/Images/icon.png",
+        "./Extension_main/Images/settings.png",
+        "./Extension_main/Images/close.png",
+        "Extension_main/Scripts/icon.png",
+        "Extension_main/Scripts/settings.png",
+        "Extension_main/Scripts/close.png"
+      ],
+      "matches": ["<all_urls>"]
+    },
+    {
+      "resources": [
+        "./Extension_main/lib/marked.min.js",
+        "./Extension_main/lib/purify.min.js",
+        "./Extension_main/lib/firebase-app-compat.js",
+        "./Extension_main/lib/firebase-auth-compat.js",
+        "./Extension_main/lib/firebase-firestore-compat.js",
+        "./Extension_main/panel.html",
+        "./Extension_main/settings.html",
+        "./Extension_main/auth.html",
+        "./Extension_main/Images/icon 500.png",
+        "./Extension_main/Images/google-icon.png"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "16": "./Extension_main/Images/icon16.png",
+    "48": "./Extension_main/Images/icon48.png",
+    "128": "./Extension_main/Images/icon128.png"
+  },
+  "side_panel": {
+    "default_path": "./Extension_main/panel.html"
+  },
+  "oauth2": {
+    "client_id": "65902094373-93u3mmsd1uc04vhgihqnavtlk5d4hq9u.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email",
+      "https://www.googleapis.com/auth/userinfo.profile"
+    ]
+  },
+  "options_page": "./Extension_main/settings.html",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'; connect-src 'self' https://*.googleapis.com https://accounts.google.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://*.firebaseio.com https://*.firebase.com https://*.firebaseapp.com wss://*.firebaseio.com https://*.cloudfunctions.net https://*.paypal.com https://*.paypalobjects.com https://*.google-analytics.com https://www.gstatic.com"
+  }
+}
